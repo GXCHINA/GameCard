@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #0ea5e9;
+  --accent-color: #f97316;
+  --background-color: #f8fafc;
+  --card-background: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-sky-500 hover:bg-sky-600 text-white py-2 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold text-gray-900 mb-8 pb-3 border-b-2 border-indigo-100;
+  }
+  
+  .game-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Hero section styling */
+.hero-section {
+  background: linear-gradient(135deg, #4338ca 0%, #3b82f6 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+/* Game card hover effects */
+.game-card {
+  @apply relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+.game-card:hover .game-card-img {
+  transform: scale(1.05);
+}
+
+.game-card-img {
+  @apply w-full h-48 object-cover transition-transform duration-300;
+}
+
+.game-card-content {
+  @apply p-4;
+}
+
+.game-card-title {
+  @apply text-lg font-semibold text-gray-900 mb-2;
+}
+
+.game-card-author {
+  @apply text-sm text-gray-600 mb-2;
+}
+
+.game-card-description {
+  @apply text-sm text-gray-500 mb-3 line-clamp-2;
+}
+
+/* Category section */
+.category-card {
+  @apply bg-white rounded-xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer;
+}
+
+.category-icon {
+  @apply w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl;
+}
+
+/* How to use section */
+.how-to-card {
+  @apply bg-white rounded-xl p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+.how-to-number {
+  @apply w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full hover:bg-gray-500 transition-colors duration-200;
+}
+
+/* Category badges */
+.category-badge {
+  @apply inline-block text-xs px-3 py-1 rounded-full font-medium;
+}
+
+.category-action {
+  @apply bg-red-100 text-red-800;
+}
+
+.category-adventure {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.category-puzzle {
+  @apply bg-purple-100 text-purple-800;
+}
+
+.category-simulation {
+  @apply bg-green-100 text-green-800;
+}
+
+.category-strategy {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.category-other {
+  @apply bg-gray-100 text-gray-800;
+}
+
+/* Game detail page */
+.game-container {
+  @apply h-[600px] max-h-[80vh] rounded-xl overflow-hidden shadow-lg;
+}
+
+/* Loading animation */
+.loading-spinner {
+  @apply border-4 border-gray-200 w-10 h-10 rounded-full border-t-indigo-600 animate-spin;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .hero-section {
+    @apply pt-16 pb-8;
+  }
+  
+  .section-title {
+    @apply text-2xl mb-6;
+  }
+  
+  .game-grid {
+    @apply gap-4;
+  }
+} 
